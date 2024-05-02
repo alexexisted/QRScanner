@@ -1,6 +1,5 @@
 package com.alexadiamant.qrscannerapp
 
-import android.content.Context
 import android.content.pm.PackageManager
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,7 +9,9 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
+import androidx.navigation.findNavController
 import com.alexadiamant.qrscannerapp.databinding.FragmentMainBinding
+import com.alexadiamant.qrscannerapp.logic.implementations.CameraContractImplementation
 import com.journeyapps.barcodescanner.ScanContract
 import com.journeyapps.barcodescanner.ScanIntentResult
 
@@ -19,6 +20,8 @@ class MainFragment : Fragment() {
 
 
     private val contract = CameraContractImplementation()
+
+
 
     //request for camera permission through registerForActivityResult API
     private val requestPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) {
@@ -39,7 +42,6 @@ class MainFragment : Fragment() {
                 Toast.makeText(requireContext(), "Try To Scan Better", Toast.LENGTH_SHORT).show()
             } else { //if there is some content - set it to the result var
                 setResult(result.contents)
-                //TODO("set result from qr(link) to some method of retrofit")
             }
         }
     }
@@ -50,10 +52,11 @@ class MainFragment : Fragment() {
     private val binding get() = _binding!!
 
 
-    //method to set the result to textView in XML
-    private fun setResult(string: String) {
-        binding.TVtextResult.text = string
-        //TODO("paste parsed info to TextView")
+    //set the result to navigation safe args to get it from next fragment
+    private fun setResult(linkFromCamera: String) {
+        val action = MainFragmentDirections.actionMainFragmentToResultFromQRFragment(linkFromCamera)
+
+        view?.findNavController()?.navigate(action)
     }
 
     //setup camera
@@ -69,12 +72,12 @@ class MainFragment : Fragment() {
 
         _binding = FragmentMainBinding.inflate(inflater, container, false)
         val view = binding.root
-//        binding.lifecycleOwner = viewLifecycleOwner
 
         //check if permission was given
         binding.fab.setOnClickListener {
             checkPermissionCamera(this)
         }
+
 
         return view
     }
