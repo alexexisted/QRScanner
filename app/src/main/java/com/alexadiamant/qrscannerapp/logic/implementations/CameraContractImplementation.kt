@@ -1,8 +1,8 @@
-package com.alexadiamant.qrscannerapp
+package com.alexadiamant.qrscannerapp.logic.implementations
 
 import android.content.Context
 import com.journeyapps.barcodescanner.ScanOptions
-import androidx.activity.result.contract.ActivityResultContracts
+import com.alexadiamant.qrscannerapp.logic.contracts.CameraContract
 
 class CameraContractImplementation: CameraContract {
 

@@ -1,4 +1,4 @@
-package com.alexadiamant.qrscannerapp.data
+package com.alexadiamant.qrscannerapp.data.dataClasses
 
 data class Fias(
     val regionId: String,
