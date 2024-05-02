@@ -10,5 +10,7 @@
                 app:destination="@id/resultFromQRFragment"/>
     </fragment>
     <fragment android:id="@+id/resultFromQRFragment" android:name="com.alexadiamant.qrscannerapp.ResultFromQRFragment"
-              android:label="fragment_result_from_qr" tools:layout="@layout/fragment_result_from_qr"/>
+              android:label="fragment_result_from_qr" tools:layout="@layout/fragment_result_from_qr">
+        <argument android:name="QRLink" app:argType="string" app:nullable="true"/>
+    </fragment>
 </navigation>
