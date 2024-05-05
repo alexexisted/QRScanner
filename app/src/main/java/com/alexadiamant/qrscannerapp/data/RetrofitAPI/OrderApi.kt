@@ -16,9 +16,4 @@ interface OrderApi {
     //get request to get order list of ordered items from json
     @GET("{endpoint}")
     suspend fun getOrderedItems(@Path("endpoint") endpoint: String): OrderedItems
-
-    //get request to get ordered item from json
-    @GET("{endpoint}")
-    suspend fun getItems(@Path("endpoint") endpoint: String): Items
-
 }
