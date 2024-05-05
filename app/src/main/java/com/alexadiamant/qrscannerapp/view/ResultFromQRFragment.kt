@@ -1,7 +1,6 @@
-package com.alexadiamant.qrscannerapp
+package com.alexadiamant.qrscannerapp.view
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -9,18 +8,15 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.alexadiamant.qrscannerapp.data.RetrofitAPI.OrderApi
-import com.alexadiamant.qrscannerapp.data.dataClasses.Items
 import com.alexadiamant.qrscannerapp.data.dataClasses.Order
 import com.alexadiamant.qrscannerapp.data.dataClasses.OrderedItems
 import com.alexadiamant.qrscannerapp.databinding.FragmentResultFromQrBinding
 import com.alexadiamant.qrscannerapp.logic.implementations.LinksContractImpl
-import com.alexadiamant.qrscannerapp.view.ItemsAdapter
 import kotlinx.coroutines.*
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.create
 
 class ResultFromQRFragment : Fragment() {
 

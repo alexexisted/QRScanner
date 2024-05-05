@@ -4,12 +4,12 @@
             xmlns:tools="http://schemas.android.com/tools" android:id="@+id/nav_graph"
             app:startDestination="@id/mainFragment">
 
-    <fragment android:id="@+id/mainFragment" android:name="com.alexadiamant.qrscannerapp.MainFragment"
+    <fragment android:id="@+id/mainFragment" android:name="com.alexadiamant.qrscannerapp.view.MainFragment"
               android:label="fragment_main" tools:layout="@layout/fragment_main">
         <action android:id="@+id/action_mainFragment_to_resultFromQRFragment"
                 app:destination="@id/resultFromQRFragment"/>
     </fragment>
-    <fragment android:id="@+id/resultFromQRFragment" android:name="com.alexadiamant.qrscannerapp.ResultFromQRFragment"
+    <fragment android:id="@+id/resultFromQRFragment" android:name="com.alexadiamant.qrscannerapp.view.ResultFromQRFragment"
               android:label="fragment_result_from_qr" tools:layout="@layout/fragment_result_from_qr">
         <argument android:name="QRLink" app:argType="string" app:nullable="true"/>
     </fragment>

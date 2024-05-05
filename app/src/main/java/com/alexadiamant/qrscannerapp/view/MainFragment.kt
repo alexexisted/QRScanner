@@ -1,4 +1,4 @@
-package com.alexadiamant.qrscannerapp
+package com.alexadiamant.qrscannerapp.view
 
 import android.content.pm.PackageManager
 import android.os.Bundle

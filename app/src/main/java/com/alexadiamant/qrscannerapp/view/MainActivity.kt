@@ -1,16 +1,8 @@
-package com.alexadiamant.qrscannerapp
+package com.alexadiamant.qrscannerapp.view
 
-import android.content.Context
-import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
-import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.content.ContextCompat
-import com.alexadiamant.qrscannerapp.databinding.ActivityMainBinding
-import com.journeyapps.barcodescanner.ScanContract
-import com.journeyapps.barcodescanner.ScanIntentResult
-import com.journeyapps.barcodescanner.ScanOptions
+import com.alexadiamant.qrscannerapp.R
 
 class MainActivity : AppCompatActivity() {
 //
