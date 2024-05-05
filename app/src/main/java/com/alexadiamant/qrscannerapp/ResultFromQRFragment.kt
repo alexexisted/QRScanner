@@ -104,8 +104,7 @@ class ResultFromQRFragment : Fragment() {
             //ui thread to set info from request
             withContext(Dispatchers.Main) {
                 binding.testTV.text = order.customer.toString()
-//                binding.TVOrderedItems.text =  orderedItems.toString()
-                binding.TVOrderedItems.text = orderedItems.toString()
+                adapter.submitList(orderedItems.items)
             }
         }
     }
