@@ -49,28 +49,28 @@ class ResultFromQRFragment : Fragment() {
 
         //scanned link
         val link = args.QRLink.toString()
-
         val endpoint = linkContract.getEndpoint(link)
-
         runRetrofit(endpoint)
-
 
         return view
     }
 
     private fun runRetrofit(endpoint: String) {
 
-        val TAG = "ResultFragment"
-
+        //add interceptor to get logs
         val interceptor = HttpLoggingInterceptor()
+
+        //set up level of logs(in my case i want to see body only)
         interceptor.level = HttpLoggingInterceptor.Level.BODY
 
+        //creating the client through OkHttp
         val client = OkHttpClient.Builder()
             .addInterceptor(interceptor)
             .build()
 
         val retrofit = Retrofit.Builder()
 //            .baseUrl("{$link}") //runtime error occurs
+            //add client to retrofit instance
             .baseUrl("https://api.mockfly.dev/mocks/060e9d53-0e78-4171-80cc-c4084031cad7/").client(client)
             .addConverterFactory(GsonConverterFactory.create()).build()
 
