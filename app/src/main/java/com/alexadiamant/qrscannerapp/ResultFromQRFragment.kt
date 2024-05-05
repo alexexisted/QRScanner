@@ -83,23 +83,13 @@ class ResultFromQRFragment : Fragment() {
                 orderApi.getOrder(endpoint)
             }
             //async request to get list of ordered items
-//            val orderedItemsDeferred: Deferred<OrderedItems> = async {
-//                orderApi.getOrderedItems(endpoint)
-//            }
-//            Log.i(TAG, "$orderedItemsDeferred")
-
-            //async request to get ordered item
-            val orderedItemsDeferred: Deferred<Items> = async {
-                orderApi.getItems(endpoint)
+            val orderedItemsDeferred: Deferred<OrderedItems> = async {
+                orderApi.getOrderedItems(endpoint)
             }
-            Log.i(TAG, "$orderedItemsDeferred")
-
 
             //await result
-            val order: Order = orderDeferred.await()
-//            val orderedItems: OrderedItems = orderedItemsDeferred.await()
-            val orderedItems: Items = orderedItemsDeferred.await()
-            Log.i(TAG, "$orderedItems")
+            val order: Order = orderDeferred.await() //get main info about the order
+            val orderedItems: OrderedItems = orderedItemsDeferred.await() //get object with list of ordered items
 
             //ui thread to set info from request
             withContext(Dispatchers.Main) {
