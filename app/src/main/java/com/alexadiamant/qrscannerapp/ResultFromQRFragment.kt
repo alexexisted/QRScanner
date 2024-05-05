@@ -43,6 +43,10 @@ class ResultFromQRFragment : Fragment() {
         _binding = FragmentResultFromQrBinding.inflate(inflater, container, false)
         val view = binding.root
 
+        adapter = ItemsAdapter()
+        binding.RCViewItems.layoutManager = LinearLayoutManager(requireContext())
+        binding.RCViewItems.adapter = adapter
+
         //scanned link
         val link = args.QRLink.toString()
 
