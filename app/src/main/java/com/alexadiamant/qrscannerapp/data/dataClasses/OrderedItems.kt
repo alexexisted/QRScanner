@@ -1,5 +1,5 @@
 package com.alexadiamant.qrscannerapp.data.dataClasses
 
 data class OrderedItems(
-    val orderedItems: List<Items>
+    val items: List<Items>
 )
