@@ -17,12 +17,4 @@ class CameraContractImplementation: CameraContract {
 
         return options
     }
-
-    override fun setResult(info: String) {
-        TODO("Not yet implemented")
-    }
-
-    override fun checkPermissionCamera(context: Context) {
-        TODO("Not yet implemented")
-    }
 }
