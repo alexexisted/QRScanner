@@ -1,4 +1,4 @@
-package com.alexadiamant.qrscannerapp.view
+package com.alexadiamant.qrscannerapp.view.adapters
 
 import android.view.LayoutInflater
 import android.view.View
