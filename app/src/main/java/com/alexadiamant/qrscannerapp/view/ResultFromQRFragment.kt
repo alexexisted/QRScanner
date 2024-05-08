@@ -111,8 +111,12 @@ class ResultFromQRFragment : Fragment() {
 
             //ui thread to set info from request to view
             withContext(Dispatchers.Main) {
-                binding.testTV.text = order.customer.toString()
-                adapter.submitList(orderedItems.items)
+                //setting data about order in general to tableView
+                orderAdapter.submitList(finalListOfOrder)
+
+                //setting data about ordered items in cardView
+                itemsAdapter.submitList(orderedItems.items)
+
             }
         }
     }
