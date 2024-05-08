@@ -107,6 +107,7 @@ class ResultFromQRFragment : Fragment() {
             //await result
             val order: Order = orderDeferred.await() //get main info about the order
             val orderedItems: OrderedItems = orderedItemsDeferred.await() //get object with list of ordered items
+            val finalListOfOrder = listOf(order)    //make list of order
 
             //ui thread to set info from request to view
             withContext(Dispatchers.Main) {
