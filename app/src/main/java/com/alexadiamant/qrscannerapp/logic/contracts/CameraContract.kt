@@ -6,8 +6,4 @@ interface CameraContract {
 
     fun setOptions(): ScanOptions
 
-    fun setResult(info: String)
-
-    fun checkPermissionCamera(context: Context)
-
 }
