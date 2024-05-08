@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_margin="10dp"
+        android:layout_height="wrap_content">
+
+    <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="2">
+
+        <TableRow>
+
+            <TextView
+                android:layout_column="1"
+                android:text="@string/order_id"
+                android:textSize="11sp"
+                android:padding="3dp"
+                android:textStyle="bold"
+            />
+
+            <TextView
+                    android:id="@+id/tableTVId"
+                    android:text="@string/error_message"
+                    android:textSize="11sp"
+                    android:padding="3dp"
+            />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                    android:layout_column="1"
+                    android:text="@string/customer"
+                    android:textStyle="bold"
+                    android:textSize="11sp"
+                    android:padding="3dp"
+            />
+
+            <TextView
+                    android:id="@+id/tableTVCustomerOBJ"
+                    android:text=""
+                    android:textSize="11sp"
+                    android:padding="3dp"
+            />
+
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                    android:layout_column="1"
+                    android:text="@string/customer_full_name"
+                    android:textSize="11sp"
+                    android:padding="3dp"
+                    android:textStyle="bold"
+            />
+
+            <TextView
+                    android:id="@+id/tableTVCustomerName"
+                    android:text="@string/error_message"
+                    android:textSize="11sp"
+                    android:padding="3dp"
+            />
+
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                    android:layout_column="1"
+                    android:text="@string/phone"
+                    android:textSize="11sp"
+                    android:padding="3dp"
+                    android:textStyle="bold"
+            />
+
+            <TextView
+                    android:id="@+id/tableTVPhone"
+                    android:text="@string/error_message"
+                    android:textSize="11sp"
+                    android:padding="3dp"
+            />
+
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                    android:layout_column="1"
+                    android:text="@string/email"
+                    android:textSize="11sp"
+                    android:padding="3dp"
+                    android:textStyle="bold"
+            />
+
+            <TextView
+                    android:id="@+id/tableTVEmail"
+                    android:text="@string/error_message"
+                    android:textSize="11sp"
+                    android:padding="3dp"
+            />
+
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                    android:layout_column="1"
+                    android:text="@string/address"
+                    android:textSize="11sp"
+                    android:padding="3dp"
+                    android:textStyle="bold"
+            />
+
+            <TextView
+                    android:id="@+id/tableTVAddressOBJ"
+                    android:text=""
+                    android:textSize="11sp"
+                    android:padding="3dp"
+            />
+
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                    android:layout_column="1"
+                    android:text="@string/source"
+                    android:textSize="11sp"
+                    android:padding="3dp"
+                    android:textStyle="bold"
+            />
+
+            <TextView
+                    android:id="@+id/tableTVSource"
+                    android:text="@string/error_message"
+                    android:textSize="11sp"
+                    android:padding="3dp"
+            />
+
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                    android:layout_column="1"
+                    android:text="@string/postal_code"
+                    android:textSize="11sp"
+                    android:padding="3dp"
+                    android:textStyle="bold"
+            />
+
+            <TextView
+                    android:id="@+id/tableTVPostalCode"
+                    android:text="@string/error_message"
+                    android:textSize="11sp"
+                    android:padding="3dp"
+            />
+
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                    android:layout_column="1"
+                    android:text="@string/access"
+                    android:textSize="11sp"
+                    android:padding="3dp"
+                    android:textStyle="bold"
+            />
+
+            <TextView
+                    android:id="@+id/tableTVAccess"
+                    android:text=""
+                    android:textSize="11sp"
+                    android:padding="3dp"
+            />
+
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                    android:layout_column="1"
+                    android:text="@string/detached_house"
+                    android:textSize="11sp"
+                    android:padding="3dp"
+                    android:textStyle="bold"
+            />
+
+            <TextView
+                    android:id="@+id/tableTVDetachedHouse"
+                    android:text="@string/error_message"
+                    android:textSize="11sp"
+                    android:padding="3dp"
+            />
+
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                    android:layout_column="1"
+                    android:text="@string/entrance"
+                    android:textSize="11sp"
+                    android:padding="3dp"
+                    android:textStyle="bold"
+            />
+
+            <TextView
+                    android:id="@+id/tableTVEntrance"
+                    android:text="@string/error_message"
+                    android:textSize="11sp"
+                    android:padding="3dp"
+            />
+
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                    android:layout_column="1"
+                    android:text="@string/floor_num"
+                    android:textSize="11sp"
+                    android:padding="3dp"
+                    android:textStyle="bold"
+            />
+
+            <TextView
+                    android:id="@+id/tableTVFloor"
+                    android:text="@string/error_message"
+                    android:textSize="11sp"
+                    android:padding="3dp"
+            />
+
+            </TableRow>
+
+        <TableRow>
+
+            <TextView
+                    android:layout_column="1"
+                    android:text="@string/intercom"
+                    android:textSize="11sp"
+                    android:padding="3dp"
+                    android:textStyle="bold"
+            />
+
+            <TextView
+                    android:id="@+id/tableTVIntercom"
+                    android:text="@string/error_message"
+                    android:textSize="11sp"
+                    android:padding="3dp"
+            />
+
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                    android:layout_column="1"
+                    android:text="@string/cargo_elevator"
+                    android:textSize="11sp"
+                    android:padding="3dp"
+                    android:textStyle="bold"
+            />
+
+            <TextView
+                    android:id="@+id/tableTVCargoElevator"
+                    android:text="@string/error_message"
+                    android:textSize="11sp"
+                    android:padding="3dp"
+            />
+
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                    android:layout_column="1"
+                    android:text="@string/comment"
+                    android:textSize="11sp"
+                    android:padding="3dp"
+                    android:textStyle="bold"
+            />
+
+            <TextView
+                    android:id="@+id/tableTVComment"
+                    android:text="@string/error_message"
+                    android:textSize="11sp"
+                    android:padding="3dp"
+            />
+
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                    android:layout_column="1"
+                    android:text="@string/apartment_num"
+                    android:textSize="11sp"
+                    android:padding="3dp"
+                    android:textStyle="bold"
+            />
+
+            <TextView
+                    android:id="@+id/tableTVApartment"
+                    android:text="@string/error_message"
+                    android:textSize="11sp"
+                    android:padding="3dp"
+            />
+
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                    android:layout_column="1"
+                    android:text="@string/region_kl_id"
+                    android:textSize="11sp"
+                    android:padding="3dp"
+                    android:textStyle="bold"
+            />
+
+            <TextView
+                    android:id="@+id/tableTVRegKladrId"
+                    android:text="@string/error_message"
+                    android:textSize="11sp"
+                    android:padding="3dp"
+            />
+
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                    android:layout_column="1"
+                    android:text="@string/house_num"
+                    android:textSize="11sp"
+                    android:padding="3dp"
+                    android:textStyle="bold"
+            />
+
+            <TextView
+                    android:id="@+id/tableTVHouse"
+                    android:text="@string/error_message"
+                    android:textSize="11sp"
+                    android:padding="3dp"
+            />
+
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                    android:layout_column="1"
+                    android:text="@string/block_name"
+                    android:textSize="11sp"
+                    android:padding="3dp"
+                    android:textStyle="bold"
+            />
+
+            <TextView
+                    android:id="@+id/tableTVBlock"
+                    android:text="@string/error_message"
+                    android:textSize="11sp"
+                    android:padding="3dp"
+            />
+
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                    android:layout_column="1"
+                    android:text="@string/flat_name"
+                    android:textSize="11sp"
+                    android:padding="3dp"
+                    android:textStyle="bold"
+            />
+
+            <TextView
+                    android:id="@+id/tableTVFlat"
+                    android:text="@string/error_message"
+                    android:textSize="11sp"
+                    android:padding="3dp"
+            />
+
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                    android:layout_column="1"
+                    android:text="@string/region_name"
+                    android:textSize="11sp"
+                    android:padding="3dp"
+                    android:textStyle="bold"
+            />
+
+            <TextView
+                    android:id="@+id/tableTVRegion"
+                    android:text="@string/error_message"
+                    android:textSize="11sp"
+                    android:padding="3dp"
+            />
+
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                    android:layout_column="1"
+                    android:text="@string/city_type_name"
+                    android:textSize="11sp"
+                    android:padding="3dp"
+                    android:textStyle="bold"
+            />
+
+            <TextView
+                    android:id="@+id/tableTVCityType"
+                    android:text="@string/error_message"
+                    android:textSize="11sp"
+                    android:padding="3dp"
+            />
+
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                    android:layout_column="1"
+                    android:text="@string/city_area_name"
+                    android:textSize="11sp"
+                    android:padding="3dp"
+                    android:textStyle="bold"
+            />
+
+            <TextView
+                    android:id="@+id/tableTVCityArea"
+                    android:text="@string/error_message"
+                    android:textSize="11sp"
+                    android:padding="3dp"
+            />
+
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                    android:layout_column="1"
+                    android:text="@string/street_name"
+                    android:textSize="11sp"
+                    android:padding="3dp"
+                    android:textStyle="bold"
+            />
+
+            <TextView
+                    android:id="@+id/tableTVStreet"
+                    android:text="@string/error_message"
+                    android:textSize="11sp"
+                    android:padding="3dp"
+            />
+
+        </TableRow>
+
+    </TableLayout>
+
+</androidx.cardview.widget.CardView>

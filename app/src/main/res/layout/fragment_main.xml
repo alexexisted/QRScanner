@@ -20,16 +20,7 @@
                 android:src="@drawable/qrcode_scan"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
-        />
-
-        <TextView
-                android:id="@+id/TVtextResult"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:textSize="25sp"
-                android:textStyle="bold"
-        />
+                android:contentDescription="@string/qr_code_picture"/>
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -44,16 +35,16 @@
             app:fabCradleVerticalOffset="10dp"
     />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab"
-            android:layout_width="88dp"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:contentDescription="@string/qrcodescanner"
-            android:backgroundTint="@color/gray_nude"
-            android:tint="@android:color/white"
-            android:src="@drawable/qrcode_scan"
-            app:layout_anchor="@id/bottopAppBar"
-    />
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab"
+                android:layout_width="334dp"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/qrcodescanner"
+                android:backgroundTint="@color/gray_nude"
+                android:tint="@android:color/white"
+                android:src="@drawable/qrcode_scan"
+                app:layout_anchor="@+id/bottopAppBar"
+                app:layout_anchorGravity="center_horizontal"
+        />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
