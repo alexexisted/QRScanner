@@ -91,7 +91,7 @@ class MainFragment : Fragment() {
         }
         //use shouldShowRequestPermissionRationale to show explanation about necessary permission
         else if (shouldShowRequestPermissionRationale(android.Manifest.permission.CAMERA)) {
-            Toast.makeText(fragment.requireContext(), "camera permission required", Toast.LENGTH_SHORT).show()
+            Toast.makeText(fragment.requireContext(), "Camera permission required", Toast.LENGTH_SHORT).show()
         }
         else {
             //else launch request launcher
