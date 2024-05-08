@@ -12,6 +12,9 @@ import com.alexadiamant.qrscannerapp.data.dataClasses.Order
 import com.alexadiamant.qrscannerapp.data.dataClasses.OrderedItems
 import com.alexadiamant.qrscannerapp.databinding.FragmentResultFromQrBinding
 import com.alexadiamant.qrscannerapp.logic.implementations.LinksContractImpl
+import com.alexadiamant.qrscannerapp.view.adapters.ItemsAdapter
+import com.alexadiamant.qrscannerapp.view.adapters.OrderInfoAdapter
+
 import kotlinx.coroutines.*
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -43,11 +46,20 @@ class ResultFromQRFragment : Fragment() {
         _binding = FragmentResultFromQrBinding.inflate(inflater, container, false)
         val view = binding.root
 
-        adapter = ItemsAdapter()
-        binding.RCViewItems.layoutManager = LinearLayoutManager(requireContext())
-        binding.RCViewItems.adapter = adapter
+        //adapter for item's recycler view
+        itemsAdapter = ItemsAdapter()
+        binding.RCViewItems.layoutManager = LinearLayoutManager(
+            requireContext(),
+            LinearLayoutManager.HORIZONTAL, //horizontal displaying of ordered items
+            false)
+        binding.RCViewItems.adapter = itemsAdapter
 
-        //scanned link
+        //adapter for main order's info recycler view
+        orderAdapter = OrderInfoAdapter()
+        binding.RCViewOrder.layoutManager = LinearLayoutManager(requireContext())
+        binding.RCViewOrder.adapter = orderAdapter
+
+        //get the scanned link from safe args
         val link = args.QRLink.toString()
 
         //put the link to method in contract to get endpoint
