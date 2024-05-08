@@ -1,6 +1,5 @@
 package com.alexadiamant.qrscannerapp.view.adapters
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,7 +7,6 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.alexadiamant.qrscannerapp.R
-import com.alexadiamant.qrscannerapp.data.dataClasses.Customer
 import com.alexadiamant.qrscannerapp.data.dataClasses.Order
 import com.alexadiamant.qrscannerapp.databinding.OrderInfoAdapterBinding
 

@@ -1,6 +1,5 @@
 package com.alexadiamant.qrscannerapp.logic.implementations
 
-import android.content.Context
 import com.journeyapps.barcodescanner.ScanOptions
 import com.alexadiamant.qrscannerapp.logic.contracts.CameraContract
 
