@@ -17,11 +17,8 @@ import com.journeyapps.barcodescanner.ScanIntentResult
 
 
 class MainFragment : Fragment() {
-
-
+    //contract to work with camera's method
     private val contract = CameraContractImplementation()
-
-
 
     //request for camera permission through registerForActivityResult API
     private val requestPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) {
@@ -29,9 +26,10 @@ class MainFragment : Fragment() {
         if (isGranted) {
             showCamera()
 
-        } //overwise show toast that access denied
+        }
         else {
-            TODO("tell that it is necessary")
+            //pop up message if user did not give permission to use the camera
+            Toast.makeText(requireContext(), "You can not use the app without camera!", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -61,6 +59,7 @@ class MainFragment : Fragment() {
 
     //setup camera
     private fun showCamera() {
+        //use contract with ready settings
         val options = contract.setOptions()
         scanLauncher.launch(options)
     }
@@ -70,6 +69,7 @@ class MainFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
+        //inflate the view
         _binding = FragmentMainBinding.inflate(inflater, container, false)
         val view = binding.root
 
@@ -82,18 +82,24 @@ class MainFragment : Fragment() {
         return view
     }
 
+    //method to check camera permission
     private fun checkPermissionCamera(fragment: Fragment) {
-        if (ContextCompat.checkSelfPermission(fragment.requireContext(), android.Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
+        //if permission was given -> show the camera
+        if (ContextCompat.checkSelfPermission(fragment.requireContext(), android.Manifest.permission.CAMERA)
+            == PackageManager.PERMISSION_GRANTED) {
             showCamera()
         }
+        //use shouldShowRequestPermissionRationale to show explanation about necessary permission
         else if (shouldShowRequestPermissionRationale(android.Manifest.permission.CAMERA)) {
             Toast.makeText(fragment.requireContext(), "camera permission required", Toast.LENGTH_SHORT).show()
         }
         else {
+            //else launch request launcher
             requestPermissionLauncher.launch(android.Manifest.permission.CAMERA)
         }
     }
 
+    //destroy view after user leave it
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

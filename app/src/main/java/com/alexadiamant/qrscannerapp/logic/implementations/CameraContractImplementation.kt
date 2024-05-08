@@ -6,6 +6,7 @@ import com.alexadiamant.qrscannerapp.logic.contracts.CameraContract
 
 class CameraContractImplementation: CameraContract {
 
+    //set up options for qrCode framework
     override fun setOptions(): ScanOptions {
         val options = ScanOptions()
         options.setDesiredBarcodeFormats(ScanOptions.QR_CODE)

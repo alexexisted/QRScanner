@@ -24,11 +24,14 @@ class ResultFromQRFragment : Fragment() {
     private var _binding: FragmentResultFromQrBinding? = null
     private val binding get() = _binding!!
 
-    //adapter
-    private lateinit var adapter: ItemsAdapter
+    //lateinit of adapters
+    private lateinit var itemsAdapter: ItemsAdapter
+    private lateinit var orderAdapter: OrderInfoAdapter
 
+    //save args
     private val args: ResultFromQRFragmentArgs by navArgs()
 
+    //contract to get endpoint from link
     private val linkContract = LinksContractImpl()
 
     override fun onCreateView(
@@ -36,6 +39,7 @@ class ResultFromQRFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
+        //binding of fragment to display results
         _binding = FragmentResultFromQrBinding.inflate(inflater, container, false)
         val view = binding.root
 
@@ -45,7 +49,11 @@ class ResultFromQRFragment : Fragment() {
 
         //scanned link
         val link = args.QRLink.toString()
+
+        //put the link to method in contract to get endpoint
         val endpoint = linkContract.getEndpoint(link)
+
+        //run retrofit method to work with net
         runRetrofit(endpoint)
 
         return view
@@ -70,9 +78,10 @@ class ResultFromQRFragment : Fragment() {
             .baseUrl("https://api.mockfly.dev/mocks/060e9d53-0e78-4171-80cc-c4084031cad7/").client(client)
             .addConverterFactory(GsonConverterFactory.create()).build()
 
+        //creating implementation of endpoints
         val orderApi = retrofit.create(OrderApi::class.java)
 
-        //create coroutine
+        //launch coroutine to get request
         CoroutineScope(Dispatchers.IO).launch {
             //async request to get main info about order
             val orderDeferred: Deferred<Order> = async {
@@ -87,7 +96,7 @@ class ResultFromQRFragment : Fragment() {
             val order: Order = orderDeferred.await() //get main info about the order
             val orderedItems: OrderedItems = orderedItemsDeferred.await() //get object with list of ordered items
 
-            //ui thread to set info from request
+            //ui thread to set info from request to view
             withContext(Dispatchers.Main) {
                 binding.testTV.text = order.customer.toString()
                 adapter.submitList(orderedItems.items)
@@ -95,3 +104,7 @@ class ResultFromQRFragment : Fragment() {
         }
     }
 }
+
+
+
+
