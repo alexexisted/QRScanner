@@ -89,10 +89,8 @@ class ResultFromQRFragment : Fragment() {
             .build()
 
         val retrofit = Retrofit.Builder()
-//            .baseUrl("{$link}") //runtime error occurs
             //add client to retrofit instance
-//            .baseUrl("https://api.mockfly.dev/mocks/060e9d53-0e78-4171-80cc-c4084031cad7/").client(client)
-            .baseUrl(link)
+            .baseUrl(link).client(client)
             .addConverterFactory(GsonConverterFactory.create()).build()
 
         //creating implementation of endpoints
