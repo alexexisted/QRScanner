@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.alexadiamant.qrscannerapp.data.RetrofitAPI.OrderApi
@@ -62,16 +63,19 @@ class ResultFromQRFragment : Fragment() {
         //get the scanned link from safe args
         val link = args.QRLink.toString()
 
+        //put the link to method in contract to get link without endpoint
+        val cutLink = linkContract.getLink(link)
+
         //put the link to method in contract to get endpoint
         val endpoint = linkContract.getEndpoint(link)
 
         //run retrofit method to work with net
-        runRetrofit(endpoint)
+        runRetrofit(endpoint, cutLink)
 
         return view
     }
 
-    private fun runRetrofit(endpoint: String) {
+    private fun runRetrofit(endpoint: String, link: String) {
 
         //add interceptor to get logs
         val interceptor = HttpLoggingInterceptor()
@@ -87,7 +91,8 @@ class ResultFromQRFragment : Fragment() {
         val retrofit = Retrofit.Builder()
 //            .baseUrl("{$link}") //runtime error occurs
             //add client to retrofit instance
-            .baseUrl("https://api.mockfly.dev/mocks/060e9d53-0e78-4171-80cc-c4084031cad7/").client(client)
+//            .baseUrl("https://api.mockfly.dev/mocks/060e9d53-0e78-4171-80cc-c4084031cad7/").client(client)
+            .baseUrl(link)
             .addConverterFactory(GsonConverterFactory.create()).build()
 
         //creating implementation of endpoints
