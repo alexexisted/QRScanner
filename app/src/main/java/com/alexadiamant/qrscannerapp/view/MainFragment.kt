@@ -51,10 +51,21 @@ class MainFragment : Fragment() {
 
 
     //set the result to navigation safe args to get it from next fragment
+    //only if link is correct
     private fun setResult(linkFromCamera: String) {
-        val action = MainFragmentDirections.actionMainFragmentToResultFromQRFragment(linkFromCamera)
+        //check if link is equal to template
+        if (linkFromCamera.substringBeforeLast("/")
+            == "https://api.mockfly.dev/mocks/060e9d53-0e78-4171-80cc-c4084031cad7") {
 
-        view?.findNavController()?.navigate(action)
+            //use directions and navController to navigate in case link is correct
+            val action = MainFragmentDirections.actionMainFragmentToResultFromQRFragment(linkFromCamera)
+            view?.findNavController()?.navigate(action)
+        }
+        else {
+            //if link is incorrect - make a toast and user is able to try scan again
+            Toast.makeText(requireContext(), "Wrong link from QR", Toast.LENGTH_SHORT).show()
+        }
+
     }
 
     //setup camera
