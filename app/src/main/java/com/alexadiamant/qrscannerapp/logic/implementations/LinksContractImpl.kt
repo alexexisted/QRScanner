@@ -10,4 +10,10 @@ class LinksContractImpl: LinksContract {
 
         return endpoint
     }
+
+    override fun getLink(link: String): String {
+        val cuttedLink = link.substringBeforeLast("/")
+
+        return "$cuttedLink/"
+    }
 }
