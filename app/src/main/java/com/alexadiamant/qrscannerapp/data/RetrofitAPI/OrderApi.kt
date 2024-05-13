@@ -1,6 +1,5 @@
 package com.alexadiamant.qrscannerapp.data.RetrofitAPI
 
-import com.alexadiamant.qrscannerapp.data.dataClasses.Items
 import com.alexadiamant.qrscannerapp.data.dataClasses.Order
 import com.alexadiamant.qrscannerapp.data.dataClasses.OrderedItems
 import retrofit2.http.GET
