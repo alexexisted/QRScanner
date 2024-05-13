@@ -7,7 +7,6 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 
 interface OrderApi {
-//    @GET("https://api.mockfly.dev/mocks/060e9d53-0e78-4171-80cc-c4084031cad7/parcel")
 
     //get request to get order info from json
     @GET("{endpoint}")
