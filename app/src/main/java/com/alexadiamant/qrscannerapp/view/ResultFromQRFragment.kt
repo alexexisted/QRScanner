@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.alexadiamant.qrscannerapp.data.RetrofitAPI.OrderApi
@@ -34,6 +33,9 @@ class ResultFromQRFragment : Fragment() {
 
     //save args
     private val args: ResultFromQRFragmentArgs by navArgs()
+
+    //dispatchers
+    private val dispatcher: CoroutineDispatcher = Dispatchers.Main
 
     //contract to get endpoint from link
     private val linkContract = LinksContractImpl()
@@ -113,7 +115,7 @@ class ResultFromQRFragment : Fragment() {
             val finalListOfOrder = listOf(order)    //make list of order
 
             //ui thread to set info from request to view
-            withContext(Dispatchers.Main) {
+            withContext(dispatcher) {
                 //setting data about order in general to tableView
                 orderAdapter.submitList(finalListOfOrder)
 
