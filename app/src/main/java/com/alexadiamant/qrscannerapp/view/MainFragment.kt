@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.navigation.findNavController
+import com.alexadiamant.qrscannerapp.data.secure.HiddenLink
 import com.alexadiamant.qrscannerapp.databinding.FragmentMainBinding
 import com.alexadiamant.qrscannerapp.logic.implementations.CameraContractImplementation
 import com.journeyapps.barcodescanner.ScanContract
@@ -19,6 +20,7 @@ import com.journeyapps.barcodescanner.ScanIntentResult
 class MainFragment : Fragment() {
     //contract to work with camera's method
     private val contract = CameraContractImplementation()
+    private val mainLink = HiddenLink.instance.getLink()
 
     //request for camera permission through registerForActivityResult API
     private val requestPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) {
@@ -53,9 +55,9 @@ class MainFragment : Fragment() {
     //set the result to navigation safe args to get it from next fragment
     //only if link is correct
     private fun setResult(linkFromCamera: String) {
-        //check if link is equal to template
+        //check if link is equal to mainLink
         if (linkFromCamera.substringBeforeLast("/")
-            == "https://api.mockfly.dev/mocks/060e9d53-0e78-4171-80cc-c4084031cad7") {
+            == mainLink) {
 
             //use directions and navController to navigate in case link is correct
             val action = MainFragmentDirections.actionMainFragmentToResultFromQRFragment(linkFromCamera)
